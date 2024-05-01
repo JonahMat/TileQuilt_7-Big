@@ -1,0 +1,171 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.4.0/dist/aframe-master.min.js"></script>
+        <script src="libraries/aframe-ar.js"></script>
+        <script src="libraries/gesture-detector.js"></script>
+        <script src="libraries/.js"></script>
+    </head>
+
+
+
+    <body>
+        <!--                 embedded arjs="debugUIEnabled: false; patternRation: 0.350"-->
+        <a-scene embedded arjs
+                 renderer="logarithmicDepthBuffer: true;"
+                 vr-mode-ui="enabled: false"
+                 gesture-detector
+                 id="scene"
+                 >
+
+            <!--
+// Load assets
+// To understand all methods to load assets, visit this site: https://aframe.io/docs/1.5.0/core/asset-management-system.html
+// Additionally, check out that you can load in audio, images, and video - play around with these
+-->
+            <a-assets timeout="3000">
+
+                <a-asset-item id="arQuilt_all-obj" src="assets/arQuilt_all.obj"></a-asset-item>
+                <a-asset-item id="arQuilt_all-mtl" src="assets/arQuilt_all.mtl"> </a-asset-item>
+
+            </a-assets>
+
+
+            <!-- define a camera which will move according to the marker position -->
+            <a-marker-camera preset='hiro'>
+
+            </a-marker-camera>
+
+            <!--_____________________________Quilt_____________________________-->
+
+<!--
+            <a-entity scale="0.1 0.1 0.1"
+                      position="0 0 -100"
+                      obj-model="obj: #arQuilt_all-obj; mtl: #arQuilt_all-mtl" rotation="0 0 0">
+            </a-entity>
+-->
+
+
+
+            <!--_____________________________Apollo_____________________________-->
+
+
+            <!--
+Custom Marker 5 works well (it's in the markers folder)
+The 3d models can be scaled to your model
+You can also locate the installation with position
+During the exhibition, if they want to see the ribbon more clearly, they can zoom in and out with their fingers
+I realized that maybe the interaction or "gesture" is interfering with the animation?
+-->
+
+
+
+
+            <a-marker id="apollo_02"
+                      type="pattern"
+                      url="markers/apollo/apolloMarkers/pattern-apollo_02.patt"
+                      >
+
+
+                <a-entity scale="0.025 0.025 0.025"
+                          position="0 0 -2.5"
+                          animation="property: material.opacity; from: 0.35; to: 0.95; loop: true; dir: alternate; dur: 1000"
+                          obj-model="obj: #arQuilt_all-obj; mtl: #arQuilt_all-mtl"
+                          rotation="0 0 0"
+                          >
+                </a-entity>
+
+            </a-marker>  
+
+
+
+            <!--
+
+<a-marker id="apollo_07"
+type="pattern"
+url="markers/apollo/apolloMarkers/pattern-apollo_07.patt"
+raycaster="objects: .clickable"
+emitevents="true"
+cursor="fuse: false; rayOrigin: mouse;"
+>
+
+<a-text value="apollo_07"
+position="0 1 0"
+height="15"
+width="15"
+color="red"
+>
+</a-text>
+
+<a-image src="#apollo_07"
+position="0 0.1 0"
+rotation="90 180 180"
+scale="1.5 1.5 1.5"
+class="clickable"
+
+animation="property: material.opacity; from: 0.35; to: 0.95; loop: true; dir: alternate; dur: 1000">
+</a-image>
+
+</a-marker>  
+
+
+<a-marker id="apollo_08"
+type="pattern"
+url="markers/apollo/apolloMarkers/pattern-apollo_08.patt"
+raycaster="objects: .clickable"
+emitevents="true"
+cursor="fuse: false; rayOrigin: mouse;"
+>
+
+<a-text value="apollo_08"
+position="0 1 0"
+height="15"
+width="15"
+color="red"
+>
+</a-text>
+
+<a-image src="#apollo_08"
+position="0 0.1 0"
+rotation="90 180 180"
+scale="1.5 1.5 1.5"
+class="clickable"
+
+animation="property: material.opacity; from: 0.35; to: 0.95; loop: true; dir: alternate; dur: 1000">
+</a-image>
+
+</a-marker>  
+
+
+<a-marker id="apollo_09"
+type="pattern"
+url="markers/apollo/apolloMarkers/pattern-apollo_09.patt"
+raycaster="objects: .clickable"
+emitevents="true"
+cursor="fuse: false; rayOrigin: mouse;"
+>
+
+<a-text value="apollo_09"
+position="0 1 0"
+height="15"
+width="15"
+color="red"
+>
+</a-text>
+
+<a-image src="#apollo_09"
+position="0 0.1 0"
+rotation="90 180 180"
+scale="1.5 1.5 1.5"
+class="clickable"
+
+animation="property: material.opacity; from: 0.35; to: 0.95; loop: true; dir: alternate; dur: 1000">
+</a-image>
+
+</a-marker>  
+
+
+
+
+</a-scene>
+</body>
+</html>
